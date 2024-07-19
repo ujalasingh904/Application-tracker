@@ -52,16 +52,16 @@ export const login = async (req, res) => {
 
     } catch (error) {
         console.log("error in login controller", error.message);
-        return res.status(500).json(error.message)
+        return res.status(500).json(error.message) 
     }
 
 }
 
 export const logout = async (req, res) => {
     try {
-        res.clearCookie('access_token').status(200).json("User logout successfully")
+        return res.clearCookie('access_token').status(200).json({ message: "User logout successfully" })
     } catch (error) {
-        console.log("error in logout controller",error.message);
+        console.log("error in logout controller", error.message);
         return res.status(500).json(error.message)
     }
-}
+} 

@@ -2,11 +2,13 @@ import axios from "axios";
 import { useState } from 'react'
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
+import { useAuthContext } from "../context/AuthContext";
 
 const loginHook = () => {
 
     const [Loginloading, setLoginLoading] = useState(false);
     const navigate = useNavigate()
+    const { setAuthUser  } = useAuthContext();
 
     const loginfunction = async (formData) => {
         const success = handleinputErrors({ email: formData.email, password: formData.password })
@@ -22,7 +24,7 @@ const loginHook = () => {
 
             toast.success("Logged in sucessfully")
             sessionStorage.setItem('user', JSON.stringify(res));
-            navigate("/home")
+            setAuthUser(res)
         } catch (error) {
             toast.error(error.message);
         } finally {

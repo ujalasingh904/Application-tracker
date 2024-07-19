@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState } from 'react'
-import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast" 
+import { useAuthContext } from "../context/AuthContext";
 
 
 const registerHook = () => {
 
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false); 
+    const { setAuthUser } = useAuthContext()
 
     const register = async (formData) => {
         const success = handleinputErrors({ name: formData.name, email: formData.email, password: formData.password })
@@ -21,7 +21,7 @@ const registerHook = () => {
 
             toast.success("Accounted created  sucessfully")
             sessionStorage.setItem('user', JSON.stringify(res));
-            navigate("/home")
+            setAuthUser(res)
         } catch (error) {
             toast.error(error.message)
         } finally {
