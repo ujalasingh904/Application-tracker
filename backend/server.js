@@ -16,11 +16,16 @@ mongoose
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors(
+    { 
+        origin: "http://localhost:5173", 
+        credentials: true  
+    }
+))
 app.use(cookieParser())
 const port = process.env.PORT || 5000
 
 app.use("/api/auth", authRoute)
 app.use("/api/job", jobRoute)
-app.use("/api/u&d",updateAnddeleteRoute)
+app.use("/api/u&d", updateAnddeleteRoute)
 app.listen(port, () => console.log(`server listening on port :${port}`))
