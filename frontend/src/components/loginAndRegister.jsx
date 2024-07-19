@@ -80,7 +80,7 @@ const LoginAndRegister = () => {
                         <button className='bg-gray-900 py-3 px-10 rounded-full text-xl text-white hover:opacity-80 transition-all'
                             type='submit'
                             onClick={login ? handleLogin : handleRegister}
-                        >{ (loading || Loginloading) ? "Loading..." : (login ? "Login" : "Register")}</button>
+                        >{ (loading || Loginloading) ? <div className="loader"></div> : (login ? "Login" : "Register")}</button>
                     </div>
                 </form>
             </div>

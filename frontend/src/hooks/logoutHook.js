@@ -13,21 +13,21 @@ const logoutHook = () => {
         try {
 
             const url = `${import.meta.env.VITE_BASE_URL}/api/auth/logout`
-            const { data: res } = await axios.post(url, { withCredentials: true });
-            if(res.error)
+            const { data: res } = await axios.post(url,{}, { withCredentials: true });
+            if (res.error)
                 throw new Error(res.error)
 
-            toast.success("Logout Successful")
+            toast.success("Logout Successfull")
             setAuthUser(null)
-            sessionStorage.clear()
+            sessionStorage.removeItem('user')
         } catch (error) {
             toast.error(error.message)
-        } finally{
+        } finally {
             setLoading(false)
         }
     }
 
-    return { logout }
+    return { loading, logout }
 
 }
 
