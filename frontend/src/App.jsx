@@ -9,7 +9,7 @@ import "./App.css"
 const App = () => {
 
   const { authUser } = useAuthContext()
-  console.log(authUser)
+  // console.log(authUser)
 
   return (
     <div>

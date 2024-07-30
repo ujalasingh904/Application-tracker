@@ -1,13 +1,11 @@
 import axios from "axios";
 import { useState } from 'react'
-import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast" 
 import { useAuthContext } from "../context/AuthContext";
 
 const loginHook = () => {
 
-    const [Loginloading, setLoginLoading] = useState(false);
-    const navigate = useNavigate()
+    const [Loginloading, setLoginLoading] = useState(false); 
     const { setAuthUser  } = useAuthContext();
 
     const loginfunction = async (formData) => {
