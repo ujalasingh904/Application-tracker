@@ -9,7 +9,7 @@ import JobsDisplay from './JobsDisplay';
 const Home = () => {
   const [create, setCreate] = useState(false)
   const { jobsArray } = useJobsContext()
-  const jobsArraySize  = Object.keys(jobsArray).length 
+  const jobsArraySize = Object.keys(jobsArray).length
 
 
   return (
@@ -18,7 +18,10 @@ const Home = () => {
 
       <div className='flex flex-col justify-center items-center lg:w-2/3 mx-auto p-12 bg-slate-400 '>
         <div className='flex justify-between items-center w-full'>
-          <h1 className='text-white font-bold text-4xl'>Create your job applications</h1>
+          <div className='flex items-center justify-center gap-x-5'>
+            <h1 className='text-white font-bold text-4xl'>Create your job applications</h1>
+            <span className='text-3xl text-white font-semibold'> ({jobsArray.length}) </span>
+          </div>
 
           {!create && <FaCirclePlus className='text-3xl cursor-pointer'
             onClick={() => setCreate(!create)}
@@ -30,7 +33,7 @@ const Home = () => {
         <div className='py-12 min-h-[70vh] w-full'>
           {
             create ? <InputField setCreate={setCreate} /> :
-              (jobsArraySize >= 0 ? <JobsDisplay/> :
+              (jobsArraySize >= 0 ? <JobsDisplay /> :
                 <p className='text-2xl font-semibold'>No applications found :( </p>)
 
           }
