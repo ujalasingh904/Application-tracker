@@ -15,7 +15,7 @@ const JobInputField = () => {
             dateApplied: formData.dateApplied,
             status: formData.status
         })
-
+ 
         if (!success) return;
 
         setLoading(true);
@@ -28,8 +28,8 @@ const JobInputField = () => {
                 throw new Error(res.error);
             }
 
-            console.log("Response:", res);
-            setJobsArray([...jobsArray , res]) 
+            // console.log("Response:", res);
+            // setJobsArray([...jobsArray , res]) 
             toast.success("jobData saved successfully in the database")
 
         } catch (error) {
