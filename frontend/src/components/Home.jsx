@@ -9,7 +9,9 @@ import JobsDisplay from './JobsDisplay';
 const Home = () => {
   const [create, setCreate] = useState(false)
   const { jobsArray } = useJobsContext()
-  const jobsArraySize = Object.keys(jobsArray).length
+  const jobsArraySize = jobsArray.length
+  console.log(jobsArraySize)
+  console.log(jobsArray)
 
 
   return (
@@ -30,12 +32,10 @@ const Home = () => {
           />}
         </div>
 
-        <div className='py-12 min-h-[70vh] w-full'>
+        <div className='py-12 min-h-[70vh] w-full flex items-center justify-center'>
           {
             create ? <InputField setCreate={setCreate} /> :
-              (jobsArraySize >= 0 ? <JobsDisplay /> :
-                <p className='text-2xl font-semibold'>No applications found :( </p>)
-
+              <JobsDisplay />
           }
         </div>
 

@@ -14,10 +14,10 @@ const getUserJobs = () => {
                 const url = `${import.meta.env.VITE_BASE_URL}/api/job/getalljobs`; 
                 const { data: res } = await axios.get(url, { withCredentials: true });
                 if (res.error)
-                    throw new Error(res.error)
+                    throw new Error(res.error) 
  
                 setJobsArray(res); 
-                toast.success("fetched all jobs successfully");
+                // toast.success("fetched all jobs successfully");
 
             } catch (error) {
                 toast.error(error.message)

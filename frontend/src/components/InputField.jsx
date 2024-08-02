@@ -30,7 +30,7 @@ const InputField = ({ setCreate }) => {
 
     return (
         <>
-            <form className='py-8 px-10 space-y-4 rounded-md bg-[#8527ff]'
+            <form className='py-8 px-10 space-y-4 rounded-md bg-[#8527ff] w-full'
                 onSubmit={handleJobData}
             >
 
