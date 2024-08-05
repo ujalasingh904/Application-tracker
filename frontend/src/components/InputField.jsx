@@ -66,7 +66,7 @@ const InputField = ({ setCreate }) => {
                         />
                         <button
                             onClick={setTodayDate}
-                            className="px-3 py-[.62rem] rounded-tr rounded-br bg-blue-400 text-white ">
+                            className="px-4  py-[.62rem] rounded-tr rounded-br bg-blue-400 text-white ">
                             Today
                         </button>
                     </div>

@@ -28,7 +28,7 @@ const getUserJobs = () => {
         jobsDisplay();
     }, [])
 
-    return { loading};
+    return { loading };
 }
 
 export default getUserJobs

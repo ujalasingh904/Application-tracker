@@ -10,15 +10,16 @@ const Home = () => {
   const [create, setCreate] = useState(false)
   const { jobsArray } = useJobsContext()
   const jobsArraySize = jobsArray.length
-  console.log(jobsArraySize)
-  console.log(jobsArray)
+  // console.log(jobsArraySize)
+  // console.log(jobsArray)
 
 
   return (
     <div className='bg-blue-400/20'>
       <Navbar />
 
-      <div className='flex flex-col justify-center items-center lg:w-2/3 mx-auto p-12 bg-slate-400 '>
+      <div className='flex flex-col justify-center items-center lg:w-2/3 mx-auto p-12 bg-slate-400'>
+
         <div className='flex justify-between items-center w-full'>
           <div className='flex items-center justify-center gap-x-5'>
             <h1 className='text-white font-bold text-4xl'>Create your job applications</h1>
@@ -32,7 +33,7 @@ const Home = () => {
           />}
         </div>
 
-        <div className='py-12 min-h-[70vh] w-full flex items-center justify-center'>
+        <div className='pt-20 min-h-[69.4vh]  w-full  flex items-start justify-center'>
           {
             create ? <InputField setCreate={setCreate} /> :
               <JobsDisplay />
