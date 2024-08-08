@@ -12,7 +12,7 @@ const App = () => {
   // console.log(authUser)
 
   return (
-    <div>
+    <div className='bg-black'>
       <Routes>
         <Route exact path='/home' element={authUser ? <Home /> : <Navigate to="/" />} />
         <Route exact path='/' element={authUser ? <Navigate to="/home" /> : <LoginAndRegister />} />

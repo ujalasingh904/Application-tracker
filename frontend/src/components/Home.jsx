@@ -15,21 +15,21 @@ const Home = () => {
 
 
   return (
-    <div className='bg-blue-400/20'>
+    <div className=''>
       <Navbar />
 
-      <div className='flex flex-col justify-center items-center lg:w-2/3 mx-auto p-12 bg-slate-400'>
+      <div className='flex flex-col justify-center items-center lg:w-[67.666667%] mx-auto p-12 pb-[1.3rem] border-b-4 border-l-4 border-r-4'>
 
         <div className='flex justify-between items-center w-full'>
-          <div className='flex items-center justify-center gap-x-5'>
+          <div className='flex items-center justify-center gap-x-3'>
             <h1 className='text-white font-bold text-4xl'>Create your job applications</h1>
             <span className='text-3xl text-white font-semibold'> ({jobsArray.length}) </span>
           </div>
 
-          {!create && <FaCirclePlus className='text-3xl cursor-pointer'
+          {!create && <FaCirclePlus className='text-3xl text-white cursor-pointer'
             onClick={() => setCreate(!create)}
           />}
-          {create && <RxCrossCircled className='text-3xl cursor-pointer text-[#ef0000]' onClick={() => setCreate(!create)}
+          {create && <RxCrossCircled className='text-3xl cursor-pointer text-red-600 ' onClick={() => setCreate(!create)}
           />}
         </div>
 

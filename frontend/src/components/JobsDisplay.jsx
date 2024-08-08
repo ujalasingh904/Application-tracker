@@ -55,7 +55,7 @@ const JobsDisplay = () => {
                 <table className='w-full text-left table-auto rounded-lg'>
 
                     <thead>
-                        <tr className='bg-[#02182B] text-white font-normal'>
+                        <tr className='bg-[#0088ff] text-white font-normal'>
                             <th className='py-3 px-4 text-lg font-semibold rounded-tl-lg'>Company name</th>
                             <th className='py-3 px-4 text-lg font-semibold '>Job role</th>
                             <th className='py-3 px-4 text-lg font-semibold '>Platform</th>
@@ -70,7 +70,7 @@ const JobsDisplay = () => {
                             jobsArray.map((job, index) => {
                                 const lastJob = index === jobsArraySize - 1;
                                 return (
-                                    <tr className='bg-sky-200' key={index}>
+                                    <tr className='bg-white font-semibold' key={index}>
                                         <td className={`py-3 px-4 ${lastJob ? 'rounded-bl-lg':'border-b'}  border-r border-indigo-950`}>{job.companyName}</td>
                                         <td className={`py-3 px-4 ${lastJob ? '':'border-b'} border-r border-indigo-950`}>{job.jobRole}</td>
                                         <td className={`py-3 px-4 ${lastJob ? '':'border-b'}  border-r border-indigo-950`}>{job.platform}</td>
@@ -78,7 +78,7 @@ const JobsDisplay = () => {
                                             <td className={` px-2 ${lastJob ? '':'border-b'} border-r border-indigo-950`} >
                                                 <select
                                                     onChange={(e) => setformData({ [e.target.id]: e.target.value })}
-                                                    name="status" id="status" className='py-1 px-2 outline-none shadow appearance-none rounded w-full cursor-pointer'>
+                                                    name="status" id="status" className='py-1 px-2 outline-none bg-black text-white shadow appearance-none rounded w-full cursor-pointer'>
                                                     <option value="">Select a status</option>
                                                     <option value="Applied">Applied</option>
                                                     <option value="Applied Referral">Applied Referral</option>

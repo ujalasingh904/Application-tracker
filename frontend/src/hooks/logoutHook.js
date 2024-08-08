@@ -17,7 +17,7 @@ const logoutHook = () => {
             if (res.error)
                 throw new Error(res.error)
 
-            toast.success("Logout Successfull")
+            toast.success("Logout Successfully")
             setAuthUser(null)
             sessionStorage.removeItem('user')
         } catch (error) {
@@ -31,4 +31,4 @@ const logoutHook = () => {
 
 }
 
-export default logoutHook
+export default logoutHook  
