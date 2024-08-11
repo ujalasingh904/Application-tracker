@@ -15,7 +15,7 @@ const loginHook = () => {
         setLoginLoading(true);
         try {
 
-            const url = `https://application-tracker-7nun.onrender.com/api/auth/login`;
+            const url = `${import.meta.env.VITE_BASE_URL}/api/auth/login`;
             console.log(import.meta.env.VITE_BASE_URL)
             const { data: res } = await axios.post(url, formData, { withCredentials: true });
             if (res.error) 
