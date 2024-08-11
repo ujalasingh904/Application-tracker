@@ -2,11 +2,12 @@
   "name": "application-tracker",
   "version": "1.0.0",
   "description": "this is an job application tracker",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js",
+    "start":"node backend/server.js",
+    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Ujala singh",
   "license": "ISC",

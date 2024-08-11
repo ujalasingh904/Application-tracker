@@ -6,6 +6,7 @@ import authRoute from "./Routes/authRoute.js"
 import jobRoute from "./Routes/jobRoute.js"
 import updateAnddeleteRoute from "./Routes/updateAnddeleteRoute.js"
 import cookieParser from "cookie-parser"
+import path from "path"
 dotenv.config()
 
 mongoose
@@ -27,7 +28,16 @@ app.use(cors(
 
 const port = process.env.PORT || 5000
 
+const __dirname = path.resolve();
+
 app.use("/api/auth", authRoute)
 app.use("/api/job", jobRoute)
 app.use("/api/u&d", updateAnddeleteRoute)
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")))
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname, "frontend", "dist" ,"index.html"))
+})
+
 app.listen(port, () => console.log(`server listening on port :${port}`))
