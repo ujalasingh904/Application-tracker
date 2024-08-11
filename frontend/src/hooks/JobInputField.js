@@ -36,7 +36,7 @@ const JobInputField = () => {
             toast.error(error.message);
         } finally {
             setLoading(false);
-        }
+        } 
     }
 
     

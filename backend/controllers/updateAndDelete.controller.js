@@ -42,7 +42,7 @@ export const deleteJobData = async (req, res) => {
         const deleteJobId = req.params.id;
         const userId = req.user._id;
         if (!userId) {
-            throw new Error("User not found")
+            return res.status(404).json({ error: 'user not found ' });
         }
 
         const result = await usersJobsModel.updateOne(

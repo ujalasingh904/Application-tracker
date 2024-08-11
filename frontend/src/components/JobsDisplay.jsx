@@ -6,6 +6,7 @@ import { MdDelete } from "react-icons/md";
 import { MdDoneOutline } from "react-icons/md";
 import updatejobHook from '../hooks/updatejobHook';
 import deletejobHook from '../hooks/deletejobHook';
+import { SELECT_STATUS } from '../constants';
 
 const JobsDisplay = () => {
     const { loading } = getUserJobs()
@@ -39,7 +40,7 @@ const JobsDisplay = () => {
         setformData({ status: jobKastatus })
     }
 
-    const handleDelete = async (e, jobId)=>{
+    const handleDelete = async (e, jobId) => {
         e.preventDefault()
         formData.length = 0;
         const updatedFormData = { id: jobId };
@@ -50,18 +51,18 @@ const JobsDisplay = () => {
 
     return (
 
-        jobsArraySize > 0 ? (loading || deleteLoading ) ? <div className='loader w-[5%]'></div> :
+        jobsArraySize > 0 ? (loading || deleteLoading) ? <div className='loader w-[5%]'></div> :
             <div className='overflow-auto  max-h-[60vh] rounded-b-lg'>
                 <table className='w-full text-left table-auto rounded-lg'>
 
                     <thead>
                         <tr className='bg-[#0088ff] text-white font-normal'>
-                            <th className='py-3 px-4 text-lg font-semibold rounded-tl-lg'>Company name</th>
-                            <th className='py-3 px-4 text-lg font-semibold '>Job role</th>
-                            <th className='py-3 px-4 text-lg font-semibold '>Platform</th>
-                            <th className='py-3 pl-4 pr-24 text-lg font-semibold '>Status</th>
-                            <th className='py-3 px-4 text-lg font-semibold '>Date applied</th>
-                            <th className='py-3 px-4 text-lg font-semibold rounded-tr-lg'></th>
+                            <th className='py-3 px-4 text-sm  sm:text-lg font-semibold rounded-tl-lg'>Company name</th>
+                            <th className='py-3 px-4 text-sm sm:text-lg font-semibold '>Job role</th>
+                            <th className='py-3 px-4 text-sm sm:text-lg font-semibold '>Platform</th>
+                            <th className='py-3 pl-4 pr-24 text-sm sm:text-lg font-semibold '>Status</th>
+                            <th className='py-3 px-4 text-sm sm:text-lg font-semibold '>Date applied</th>
+                            <th className='py-3 px-4 text-sm sm:text-lg font-semibold rounded-tr-lg'></th>
                         </tr>
                     </thead>
 
@@ -71,41 +72,43 @@ const JobsDisplay = () => {
                                 const lastJob = index === jobsArraySize - 1;
                                 return (
                                     <tr className='bg-white font-semibold' key={index}>
-                                        <td className={`py-3 px-4 ${lastJob ? 'rounded-bl-lg':'border-b'}  border-r border-indigo-950`}>{job.companyName}</td>
-                                        <td className={`py-3 px-4 ${lastJob ? '':'border-b'} border-r border-indigo-950`}>{job.jobRole}</td>
-                                        <td className={`py-3 px-4 ${lastJob ? '':'border-b'}  border-r border-indigo-950`}>{job.platform}</td>
+
+                                        <td className={`py-3 px-4 ${lastJob ? 'rounded-bl-lg' : 'border-b'}  border-r border-indigo-950 text-sm sm:text-base`}>{job.companyName}</td>
+
+                                        <td className={`py-3 px-4 ${lastJob ? '' : 'border-b'} border-r text-sm sm:text-base border-indigo-950`}>{job.jobRole}</td>
+
+                                        <td className={`py-3 px-4 ${lastJob ? '' : 'border-b'}  border-r text-sm sm:text-base border-indigo-950`}>{job.platform}</td>
+
                                         {updateIndex === index ?
-                                            <td className={` px-2 ${lastJob ? '':'border-b'} border-r border-indigo-950`} >
+                                            <td className={` px-2 ${lastJob ? '' : 'border-b'} border-r text-sm sm:text-base border-indigo-950`} >
                                                 <select
                                                     onChange={(e) => setformData({ [e.target.id]: e.target.value })}
                                                     name="status" id="status" className='py-1 px-2 outline-none bg-black text-white shadow appearance-none rounded w-full cursor-pointer'>
                                                     <option value="">Select a status</option>
-                                                    <option value="Applied">Applied</option>
-                                                    <option value="Applied Referral">Applied Referral</option>
-                                                    <option value="Assignment">Assignment</option>
-                                                    <option value="Interview">Interview</option>
-                                                    <option value="Rejected">Rejected</option>
-                                                    <option value="Selected">Selected</option>
+                                                    {SELECT_STATUS.map((status, index) => (
+                                                        <option value={status} key={index}>{status}</option>
+                                                    ))}
                                                 </select> </td> :
-                                            <td className={`py-3 px-4 ${lastJob ? '':'border-b'}  border-r border-indigo-950`}
+                                            <td className={`py-3 px-4 ${lastJob ? '' : 'border-b'}  border-r text-sm sm:text-base border-indigo-950`}
                                             >{(updateLoading && loaderIndex === index) ? <div className='loader w-[18%]'></div> : job.status}
                                             </td>
 
                                         }
 
-                                        <td className={`py-3 px-4 ${lastJob ? '':'border-b'} border-r border-indigo-950`}>{job.dateApplied}</td>
-                                        <td className={`py-3 px-4 ${lastJob ? 'rounded-br-lg':'border-b'}  border-indigo-950 text-center`}>
-                                            <div className='flex gap-4'>
+                                        <td className={`py-3 px-4 ${lastJob ? '' : 'border-b'} border-r text-sm sm:text-base border-indigo-950`}>{job.dateApplied}</td>
+
+                                        <td className={`py-3 px-4 ${lastJob ? 'rounded-br-lg' : 'border-b'}  border-indigo-950 text-center`}>
+                                            <div className='flex gap-4 text-xl'>
                                                 {
-                                                    updateIndex === index ? <MdDoneOutline fontSize={23} className='cursor-pointer'
+                                                    updateIndex === index ? <MdDoneOutline  className='cursor-pointer '
                                                         onClick={(e) => handleUpdate(e, index, job._id)} /> :
 
-                                                        <MdModeEdit fontSize={23} className='cursor-pointer'
+                                                        <MdModeEdit  className='cursor-pointer'
                                                             onClick={() => handleEdit(index, job.status)}
                                                         />
                                                 }
-                                                <MdDelete fontSize={23} className='cursor-pointer'
-                                                    onClick={(e) => handleDelete(e,job._id)}
+                                                <MdDelete  className='cursor-pointer'
+                                                    onClick={(e) => handleDelete(e, job._id)}
                                                 />
                                             </div>
                                         </td>
@@ -115,28 +118,13 @@ const JobsDisplay = () => {
 
                         }
 
-
-                        {/* // <tr className='bg-sky-200'>
-                    //     <td className='py-3 px-4  border-indigo-950 rounded-bl-lg   md:border-r'>adobe</td>
-                    //     <td className='py-3 px-4  border-indigo-950  md:border-r'>sde</td>
-                    //     <td className='py-3 px-4  border-indigo-950  md:border-r'>internshala</td>
-                    //     <td className='py-3 px-4  border-indigo-950  md:border-r'>applied</td>
-                    //     <td className='py-3 px-4  border-indigo-950  md:border-r'>30 jul 2024</td>
-                    //     <td className='py-3 px-4  border-indigo-950 rounded-br-lg  text-center'>
-                    //         <div>
-                    //             <span>update</span>
-                    //             <span>delete</span>
-                    //         </div>
-                    //     </td>
-                    // </tr> */}
-
                     </tbody>
 
 
                 </table>
             </div> :
 
-            <p className='text-3xl font-semibold underline'>No applications found :( </p>
+            <p className='text-3xl font-semibold underline text-white'>No applications found :( </p>
     )
 }
 

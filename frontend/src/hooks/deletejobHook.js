@@ -13,14 +13,15 @@ const deletejobHook = () => {
 
         try {
             const url = `${import.meta.env.VITE_BASE_URL}/api/u&d/delete/${formData.id}`
-            const { data: res } = await axios.delete(url,{ withCredentials: true })
+            const { data: res } = await axios.delete(url, { withCredentials: true })
             if (res.error) {
                 throw new Error(res.error)
+                // toast.error(res.data.message)
             }
             toast.success("Job deleted successfully")
             setJobsArray(res);
         } catch (error) {
-            toast.error(error.message)
+            toast.error(error.message) 
         } finally {
             setdeleteLoading(false)
         }

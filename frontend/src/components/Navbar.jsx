@@ -12,16 +12,16 @@ const Navbar = () => {
     return (
         <div> 
 
-            <div className='py-6 px-12 flex justify-between items-center border-b-4 text-white'>
-                <div>
-                    <h1 className='md:text-5xl font'>Application Tracker</h1>
+            <div className='py-4 md:py-6 px-4 md:px-12 flex justify-between items-center border-b-4 text-white'>
+                <div className="w-[50%]">
+                    <h1 className='text-sm sm:text-2xl md:text-3xl lg:text-5xl font '>Application Tracker</h1>
                 </div>
 
-                <div className='flex justify-center items-center gap-8'>
-                    <h2 className='font-semibold text-lg  text-white'> Hello {authUser.name}</h2>
+                <div className='flex justify-end items-center gap-2 sm:gap-4 md:gap-8 '>
+                    <h2 className='font-semibold  text-xs sm:text-base md:text-lg  text-white '> Hello {authUser.name} 👋</h2>
                     {loading ? <div className="loader"></div> :
                         <button
-                            className="p-2 px-4 border-[2.5px] border-solid border-sky-500 rounded-md cursor-pointer hover:border-white hover:scale-105 transition-all ease-in  text-white font-semibold"
+                            className="p-2 sm:px-4 text-xs sm:text-base md:text-lg border-[2.5px] border-solid border-sky-500 rounded-md cursor-pointer hover:border-white hover:scale-105 transition-all ease-in  text-white font-semibold"
                             onClick={handleLogout}
                         >Logout</button>
                     }
