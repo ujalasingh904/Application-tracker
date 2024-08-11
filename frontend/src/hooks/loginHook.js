@@ -16,7 +16,6 @@ const loginHook = () => {
         try {
 
             const url = `${import.meta.env.VITE_BASE_URL}/api/auth/login`;
-            console.log(import.meta.env.VITE_BASE_URL)
             const { data: res } = await axios.post(url, formData, { withCredentials: true });
             if (res.error) 
                 throw new Error(res.error)
