@@ -22,14 +22,14 @@ const Home = () => {
 
         <div className='flex justify-between items-center w-full'>
           <div className='flex items-center justify-center gap-x-3'>
-            <h1 className='text-white font-bold text-sm sm:text-2xl md:text-3xl lg:text-4xl'>Track your job applications</h1>
+            <h1 className='text-white font-bold text-base sm:text-2xl md:text-3xl lg:text-4xl'>Track your job applications</h1>
             <span className='text-sm sm:text-2xl md:text-3xl text-white font-semibold'> ({jobsArray.length}) </span>
           </div>
 
-          {!create && <FaCirclePlus className='text-sm sm:text-2xl md:text-3xl text-white cursor-pointer'
+          {!create && <FaCirclePlus className='text-base sm:text-2xl md:text-3xl text-white cursor-pointer'
             onClick={() => setCreate(!create)}
           />}
-          {create && <RxCrossCircled className='text-sm sm:text-2xl md:text-3xl cursor-pointer text-red-600 ' onClick={() => setCreate(!create)}
+          {create && <RxCrossCircled className='text-base sm:text-2xl md:text-3xl cursor-pointer text-red-600 ' onClick={() => setCreate(!create)}
           />}
         </div>
 
