@@ -21,7 +21,8 @@ const JobInputField = () => {
         setLoading(true);
         try {
 
-            const url = `${import.meta.env.VITE_BASE_URL}/api/job/jobData`;
+            // const url = `${import.meta.env.VITE_BASE_URL}/api/job/jobData`;
+            const url = `https://application-tracker-nq3b.onrender.com/api/job/jobData`;
             const { data: res } = await axios.post(url, formData, { withCredentials: true })
 
             if (res.error) {

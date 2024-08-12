@@ -14,7 +14,8 @@ const registerHook = () => {
         if(!success) return;
         setLoading(true)
         try {
-            const url = `${import.meta.env.VITE_BASE_URL}/api/auth/signup`;
+            // const url = `${import.meta.env.VITE_BASE_URL}/api/auth/signup`;
+            const url = `https://application-tracker-nq3b.onrender.com/api/auth/signup`;
             const { data: res } = await axios.post(url, formData, { withCredentials: true });
             if (res.error)
                 throw new Error(res.error)

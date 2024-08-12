@@ -12,7 +12,10 @@ const deletejobHook = () => {
         setdeleteLoading(true)
 
         try {
-            const url = `${import.meta.env.VITE_BASE_URL}/api/u&d/delete/${formData.id}`
+            // const url = `${import.meta.env.VITE_BASE_URL}/api/u&d/delete/${formData.id}`
+            const url = `https://application-tracker-nq3b.onrender.com/api/u&d/delete/${formData.id}`
+            
+
             const { data: res } = await axios.delete(url, { withCredentials: true })
             if (res.error) {
                 throw new Error(res.error)

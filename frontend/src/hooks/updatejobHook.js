@@ -12,7 +12,8 @@ const updatejobHook = () => {
         setupdateLoading(true) 
 
         try {
-            const url = `${import.meta.env.VITE_BASE_URL}/api/u&d/update/${formData.id}`
+            // const url = `${import.meta.env.VITE_BASE_URL}/api/u&d/update/${formData.id}`
+            const url = `https://application-tracker-nq3b.onrender.com/api/u&d/update/${formData.id}`
             const { data: res } = await axios.post(url, formData, { withCredentials: true })
             if(res.error){
                 throw new Error(res.error)

@@ -11,7 +11,8 @@ const getUserJobs = () => {
         const jobsDisplay = async () => {
             setloading(true)
             try {
-                const url = `${import.meta.env.VITE_BASE_URL}/api/job/getalljobs`; 
+                // const url = `${import.meta.env.VITE_BASE_URL}/api/job/getalljobs`; 
+                const url = `https://application-tracker-nq3b.onrender.com/api/job/getalljobs`; 
                 const { data: res } = await axios.get(url, { withCredentials: true });
                 if (res.error)
                     throw new Error(res.error) 

@@ -12,7 +12,8 @@ const logoutHook = () => {
         setLoading(true)
         try {
 
-            const url = `${import.meta.env.VITE_BASE_URL}/api/auth/logout`
+            // const url = `${import.meta.env.VITE_BASE_URL}/api/auth/logout`
+            const url = `https://application-tracker-nq3b.onrender.com/api/auth/logout`
             const { data: res } = await axios.post(url,{}, { withCredentials: true });
             if (res.error)
                 throw new Error(res.error)
